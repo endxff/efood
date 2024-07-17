@@ -1,14 +1,13 @@
 import styled from 'styled-components'
 import { colors } from '../../styles'
-import { Props } from '.'
+import { Props } from '../../pages/Home'
 
 export const HeaderContainer = styled.div<Props>`
   display: flex;
-  flex-direction: ${(props) =>
-    props.headerStyle === 'home' ? 'column' : 'row'};
-  height: ${(props) => (props.headerStyle === 'home' ? '384px' : '186px')};
-  padding: ${(props) => (props.headerStyle === 'home' ? '40px 0' : '')};
-  align-items: ${(props) => (props.headerStyle === 'home' ? '' : 'center')};
+  flex-direction: ${(props) => (props.header === 'home' ? 'column' : 'row')};
+  height: ${(props) => (props.header === 'home' ? '384px' : '186px')};
+  padding: ${(props) => (props.header === 'home' ? '40px 0' : '')};
+  align-items: ${(props) => (props.header === 'home' ? '' : 'center')};
   align-content: center;
   justify-content: space-between;
   flex-wrap: wrap;

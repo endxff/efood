@@ -1,4 +1,4 @@
-class Restaurant {
+class RestaurantModel {
   name: string
   description: string
   category: string
@@ -29,4 +29,4 @@ class Restaurant {
   }
 }
 
-export default Restaurant
+export default RestaurantModel

@@ -11,7 +11,10 @@ export const ListItem = styled.div`
 `
 
 export const Image = styled.img`
+  display: block;
+  object-fit: cover;
   width: 100%;
+  height: 220px;
 `
 
 export const Title = styled.div`

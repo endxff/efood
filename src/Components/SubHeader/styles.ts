@@ -1,8 +1,9 @@
 import styled from 'styled-components'
 import trattoria from '../../Assets/fundoTrattoria.svg'
+import { Props } from './SubHeader'
 
-export const BackgroundTrattoria = styled.div`
-  background-image: url(${trattoria});
+export const Background = styled.div<Props>`
+  background-image: url(${(props) => props.capa});
   height: 280px;
   background-repeat: no-repeat;
   background-size: cover;

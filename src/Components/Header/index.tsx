@@ -8,17 +8,14 @@ import {
   SubHeaderContainer,
   Title
 } from './styles'
+import { Props } from '../../pages/Home'
 
-export type Props = {
-  headerStyle: 'home' | 'category'
-}
-
-const Header = ({ headerStyle }: Props) => {
-  const HeaderType = headerStyle
+const Header = ({ header, capa }: Props) => {
+  const HeaderType = header
   if (HeaderType === 'home') {
     return (
       <Background style={{ backgroundImage: `url(${fundo})` }}>
-        <HeaderContainer headerStyle={headerStyle}>
+        <HeaderContainer header={header}>
           <img src={logo} alt="efood"></img>
           <Title>Viva experiências gastronômicas no conforto da sua casa</Title>
         </HeaderContainer>

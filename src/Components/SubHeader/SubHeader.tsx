@@ -1,20 +1,26 @@
 import Header from '../Header'
 import trattoria from '../../Assets/fundoTrattoria.svg'
-import { BackgroundTrattoria, TextBox, TransBox } from './styles'
+import { Background, TextBox, TransBox } from './styles'
 import TrattoriaMenu from '../Menu'
 
-export const SubHeader = () => (
+export type Props = {
+  titulo?: string
+  tipo?: string
+  capa: string
+}
+
+export const SubHeader = ({ capa, titulo, tipo }: Props) => (
   <>
-    <Header headerStyle="category" />
-    <BackgroundTrattoria>
+    <Header header="category" capa={capa} />
+    <Background capa={capa}>
       <TransBox>
         <div className="container">
           <TextBox>
-            <h2>Italiana</h2>
-            <h3>La Dolce Vita Trattoria</h3>
+            <h2>{tipo}</h2>
+            <h3>{titulo}</h3>
           </TextBox>
         </div>
       </TransBox>
-    </BackgroundTrattoria>
+    </Background>
   </>
 )
