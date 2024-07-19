@@ -10,4 +10,8 @@ export const LinkButton = styled.button`
   text-align: center;
   padding: 4px 8px;
   margin: 0 8px 8px 8px;
+
+  &:hover {
+    cursor: pointer;
+  }
 `

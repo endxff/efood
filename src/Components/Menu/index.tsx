@@ -14,15 +14,12 @@ import {
 
 import margueritaModal from '../../Assets/marguerita_modal.png'
 import closeButton from '../../Assets/close_button.png'
-import { RestaurantType } from '../../pages/Home'
+import { Items, RestaurantType } from '../../pages/Home'
+import { useDispatch } from 'react-redux'
+import { add, open } from '../../store/reducers/cart'
 
 type Props = {
-  foto: string
-  preco: number
-  id: number
-  nome: string
-  descricao: string
-  porcao: string
+  menu: Items
 }
 
 export const formataPreco = (preco = 0) => {
@@ -32,8 +29,17 @@ export const formataPreco = (preco = 0) => {
   }).format(preco)
 }
 
-const Menu = ({ foto, descricao, id, nome, porcao, preco }: Props) => {
+const Menu = ({ menu }: Props) => {
   const [modal, SetModal] = useState('')
+
+  const dispatch = useDispatch()
+
+  const addToCart = () => {
+    dispatch(add(menu))
+    dispatch(open())
+    SetModal('')
+  }
+
   const getDescricao = (descricao: string) => {
     if (descricao.length > 131) {
       return descricao.slice(0, 120) + '...'
@@ -44,23 +50,23 @@ const Menu = ({ foto, descricao, id, nome, porcao, preco }: Props) => {
 
   return (
     <>
-      <MenuItem key={id}>
-        <img src={foto} alt="" />
-        <ItemTitle>{nome}</ItemTitle>
-        <ItemDesc>{getDescricao(descricao)}</ItemDesc>
+      <MenuItem key={menu.id}>
+        <img src={menu.foto} alt="" />
+        <ItemTitle>{menu.nome}</ItemTitle>
+        <ItemDesc>{getDescricao(menu.descricao)}</ItemDesc>
         <AddButton onClick={() => SetModal('open')}>Mais detalhes</AddButton>
       </MenuItem>
       <Modal className={modal === 'open' ? 'open' : ''}>
         <ModalContent className="container">
-          <ProductMedia src={foto} alt="Imagem do produto" />
+          <ProductMedia src={menu.foto} alt="Imagem do produto" />
           <div>
-            <h3>{nome}</h3>
+            <h3>{menu.nome}</h3>
             <p>
-              {descricao}
-              <span>Serve: {porcao}</span>
+              {menu.descricao}
+              <span>Serve: {menu.porcao}</span>
             </p>
-            <ModalButton>
-              Adicionar ao carrinho - {formataPreco(preco)}
+            <ModalButton onClick={addToCart}>
+              Adicionar ao carrinho - {formataPreco(menu.preco)}
             </ModalButton>
           </div>
           <CloseButton

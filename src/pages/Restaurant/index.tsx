@@ -7,6 +7,7 @@ import MenuList from '../../Components/MenuList'
 import Item from '../../models/Item'
 import marguerita from '../../Assets/marguerita.svg'
 import { useGetMenuQuery } from '../../services/api'
+import Cart from '../../Components/Cart'
 
 type RestaurandId = {
   id: string
@@ -26,6 +27,7 @@ const RestaurantPage = () => {
       <div className="container">
         <MenuList menu={menu} />
       </div>
+      <Cart />
     </>
   )
 }
