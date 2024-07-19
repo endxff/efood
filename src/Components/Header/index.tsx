@@ -9,8 +9,15 @@ import {
   Title
 } from './styles'
 import { Props } from '../../pages/Home'
+import { useDispatch } from 'react-redux'
+import { open } from '../../store/reducers/cart'
 
-const Header = ({ header, capa }: Props) => {
+const Header = ({ header }: Props) => {
+  const dispatch = useDispatch()
+  const openCart = () => {
+    dispatch(open())
+  }
+
   const HeaderType = header
   if (HeaderType === 'home') {
     return (
@@ -28,7 +35,7 @@ const Header = ({ header, capa }: Props) => {
           <SubHeaderContainer>
             <CategoryTitle>Restaurantes</CategoryTitle>
             <img src={logo} alt="efood"></img>
-            <Cart>0 produto(s) no carrinho</Cart>
+            <Cart onClick={openCart}>0 produto(s) no carrinho</Cart>
           </SubHeaderContainer>
         </div>
       </Background>

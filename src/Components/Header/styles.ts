@@ -42,6 +42,10 @@ export const Cart = styled.span`
   font-weight: 900;
   text-align: end;
   color: ${colors.rosa};
+
+  &:hover {
+    cursor: pointer;
+  }
 `
 
 export const SubHeaderContainer = styled.div`

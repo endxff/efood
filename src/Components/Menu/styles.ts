@@ -34,6 +34,10 @@ export const AddButton = styled.button`
   font-size: 14px;
   font-weight: 700;
   color: ${colors.rosa};
+
+  &:hover {
+    cursor: pointer;
+  }
 `
 
 export const Modal = styled.div`
