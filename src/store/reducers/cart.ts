@@ -4,11 +4,17 @@ import { Items, RestaurantType } from '../../pages/Home'
 type CartState = {
   items: Items[]
   isOpen: boolean
+  isCheckout: boolean
+  isPayment: boolean
+  isOrder: boolean
 }
 
 const initialState: CartState = {
   items: [],
-  isOpen: false
+  isOpen: false,
+  isCheckout: false,
+  isPayment: false,
+  isOrder: false
 }
 
 const cartSlice = createSlice({
@@ -32,9 +38,34 @@ const cartSlice = createSlice({
     },
     remove: (state, action: PayloadAction<number>) => {
       state.items = state.items.filter((item) => item.id != action.payload)
+    },
+    checkout: (state) => {
+      if (!state.isCheckout) {
+        state.isCheckout = true
+      } else {
+        state.isCheckout = false
+      }
+    },
+    payment: (state) => {
+      if (!state.isPayment) {
+        state.isPayment = true
+      } else {
+        state.isPayment = false
+      }
+    },
+    order: (state) => {
+      if (!state.isOrder) {
+        state.isOrder = true
+      } else {
+        state.isOrder = false
+        state.isPayment = false
+        state.isCheckout = false
+        state.isOpen = false
+        state.items = []
+      }
     }
   }
 })
 
-export const { add, open, remove } = cartSlice.actions
+export const { add, open, remove, checkout, payment, order } = cartSlice.actions
 export default cartSlice.reducer

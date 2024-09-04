@@ -25,6 +25,8 @@ export const Sidebar = styled.aside`
 
   ${ModalButton} {
     width: 100%;
+    background: ${colors.amarelo};
+    margin-bottom: 8px;
   }
 `
 
@@ -70,7 +72,7 @@ export const TotalContainer = styled.div`
   font-size: 14px;
   font-weight: bold;
   margin: 40px 0 16px;
-  color: ${colors.branco};
+  color: ${colors.amarelo};
 `
 
 export const Overlay = styled.div`
@@ -82,3 +84,46 @@ export const Overlay = styled.div`
   background-color: #000;
   opacity: 0.8;
 `
+
+export const CheckoutContainer = styled.div`
+  span {
+    display: block;
+  }
+
+  font-size: 14px;
+  font-weight: bold;
+  color: ${colors.amarelo};
+  margin-bottom: 24px;
+
+  input {
+    border: none;
+    background-color: ${colors.amarelo};
+    margin: 8px 0;
+    width: 100%;
+    height: 32px;
+    color: ${colors.preto};
+    font-size: 14px;
+    font-weight: 700;
+    padding: 8px;
+  }
+
+  div {
+    &.cardGrid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      grid-gap: 0 34px;
+    }
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 0 34px;
+  }
+
+  p {
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 22px;
+  }
+`
+
+export const CustomGrid = styled.div``
